@@ -1,0 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.logo-gradient {
+    @apply bg-clip-text tracking-wider subpixel-antialiased bg-gradient-to-br from-blue via-blue to-purpleDark;
+}
+
+@layer components {
+
+    body {
+        background-color: #1A1A1A;
+    }
+
+}
