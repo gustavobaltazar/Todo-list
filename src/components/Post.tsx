@@ -6,6 +6,7 @@ import Clipboard from "../assets/Clipboard.png";
 export function Post() {
     const [toDo, setToDo] = useState(['']);
     const [newToDo, setNewToDo] = useState('');
+    const [teste, setTeste] = useState("ola")
 
     function handleNewToDo() {
         event?.preventDefault()
@@ -17,6 +18,29 @@ export function Post() {
     function handleNewToDoTextChange(event: ChangeEvent<HTMLInputElement>) {
         setNewToDo(event.target.value);
     }
+
+    function handleSwitchTask(event: any) {
+
+    }
+    
+    /**
+     * [
+     *   {
+     *      content: "teste",
+     *      isMarked: true
+     *   },
+     * ]
+     * 
+     * 
+     */
+
+    // function deleteToDo(taskToDelete: string) {
+    //     const taskWithoutDeletedOne = toDo.filter(todo => {
+    //         return todo !=
+    //     })
+    // }
+
+    console.log(toDo);
 
     return (
         <article className="w-1/2 flex flex-col items-center justify-center gap-2 p-0 absolute">
@@ -42,7 +66,7 @@ export function Post() {
                     </div>
                     <div className="flex gap-2">
                         <p className="text-blue">Tarefas concluídas</p>
-                        <span className="bg-gray4 rounded-full text-white pr-3 pl-3 font-bold">{toDo.length - toDo.length}</span>
+                        <span className="bg-gray4 rounded-full text-white pr-3 pl-3 font-bold">{toDo.length - 1}</span>
                     </div>
                 </div>
             </div>
@@ -59,7 +83,7 @@ export function Post() {
 
             {
                 toDo.map((todoContent) => {
-                    return todoContent.length > 0 ? <Task content={todoContent} /> :  null
+                    return todoContent.length > 0 ? <Task content={todoContent} /> : null
                 })
             }
         </article>
