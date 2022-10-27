@@ -3,7 +3,6 @@ import { ChangeEvent, useState } from "react";
 import { Task } from "./Task";
 import Clipboard from "../assets/Clipboard.png";
 
-
 export function Post() {
     const [toDo, setToDo] = useState(['']);
     const [newToDo, setNewToDo] = useState('');
@@ -11,6 +10,8 @@ export function Post() {
     function handleNewToDo() {
         event?.preventDefault()
         setToDo([...toDo, newToDo])
+        setNewToDo('')
+
     }
 
     function handleNewToDoTextChange(event: ChangeEvent<HTMLInputElement>) {
@@ -41,7 +42,7 @@ export function Post() {
                     </div>
                     <div className="flex gap-2">
                         <p className="text-blue">Tarefas concluídas</p>
-                        <span className="bg-gray4 rounded-full text-white pr-3 pl-3 font-bold">{toDo.length - 1}</span>
+                        <span className="bg-gray4 rounded-full text-white pr-3 pl-3 font-bold">{toDo.length - toDo.length}</span>
                     </div>
                 </div>
             </div>
@@ -57,13 +58,10 @@ export function Post() {
             }
 
             {
-                toDo.map((item) => {
-                    return (
-                        <div key={item} className="text-white">{item}</div>
-                    )
+                toDo.map((todoContent) => {
+                    return todoContent.length > 0 ? <Task content={todoContent} /> :  null
                 })
             }
-
         </article>
     )
 }
