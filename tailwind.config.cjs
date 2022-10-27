@@ -8,9 +8,9 @@ module.exports = {
       },
       fontSize: {
         '2xl': ['2.5rem',{
-          fontWeight: '800',
+          fontWeight: '900',
           letterSpacing: '-0.01em',
-          lineHeight: '2rem',
+          lineHeight: '3rem',
         }],
       },
       colors: {
