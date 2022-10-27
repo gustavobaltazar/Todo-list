@@ -8,10 +8,10 @@ export function Post() {
     const [newToDo, setNewToDo] = useState('');
 
     return (
-        <article className="w-full flex flex-col items-center justify-center gap-2 p-0 absolute">
-            <form className="w-2/6 flex flex-row gap-2">
+        <article className="w-1/2 flex flex-col items-center justify-center gap-2 p-0 absolute">
+            <form className="w-full flex flex-row items-center justify-center gap-2">
                 <input
-                    className="w-full p-4 rounded-lg h-14 box-border grow-0 bg-gray5 resize-none text-gray3 placeholder:text-gray3 border border-solid shadow-md border-gray7 relative bottom-[15px]"
+                    className="w-[736px] p-4 rounded-lg h-14 box-border grow-0 bg-gray5 resize-none text-gray3 placeholder:text-gray3 border border-solid shadow-md border-gray7 relative bottom-[15px]"
                     name="todo"
                     placeholder="Adicione uma nova tarefa"
                     required
@@ -21,8 +21,8 @@ export function Post() {
                     <PlusCircle className="text-white w-8 h-8" size={32} />
                 </button>
             </form>
-            <div className="w-full flex justify-center items-end mt-12">
-                <div className="w-3/6 flex flex-row justify-between pr-24 pl-24">
+            <div className="w-full flex justify-center items-end mt-12 mb-4">
+                <div className="w-full flex flex-row justify-between">
                     <div className="flex gap-2 ">
                         <p className="text-blue">Tarefas criadas</p>
                         <span className="bg-gray4 rounded-full text-white pr-3 pl-3 font-bold">{toDo.length}</span>
@@ -34,13 +34,15 @@ export function Post() {
                 </div>
             </div>
 
-            <div className="flex flex-col justify-center items-center gap-4 border-t-[2px] border-solid rounded-md">
-                <img className="h-14 w-14" src={Clipboard} alt="" />
-                <div>
-                    <p className="text-gray3 font-bold">Você ainda não tem tarefas cadastradas</p>
-                    <p className="text-gray3">Crie tarefas e organize seus itens a fazer</p>
+            {toDo.length < 1 &&
+                <div className="w-full flex flex-col justify-center items-center gap-4 border-t-[1px] border-solid rounded-md border-gray4 p-16">
+                    <img className="h-14 w-14" src={Clipboard} alt="" />
+                    <div>
+                        <p className="text-gray3 font-bold">Você ainda não tem tarefas cadastradas</p>
+                        <p className="text-gray3">Crie tarefas e organize seus itens a fazer</p>
+                    </div>
                 </div>
-            </div>
+            }
         </article>
     )
 }

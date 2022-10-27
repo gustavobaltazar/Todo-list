@@ -6,7 +6,7 @@ export function App() {
   return (
     <div>
       <Header />
-      <main>
+      <main className="w-screen flex justify-center">
         <Post />
       </main>
     </div>
